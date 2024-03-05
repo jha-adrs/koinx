@@ -8,11 +8,21 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
+      colors: {
+        'foreground-1': 'var(--foreground)',
+        'foreground-2': 'var(--foreground-secondary)',
+        'foreground-3': 'var(--foreground-tertiary)',
+        'foreground-4': 'var(--foreground-quaternary)',
+        'foreground-muted': 'var(--foreground-muted)',
+        'card-background': 'var(--card-background)',
+        'background': 'var(--background)',
+        'card-stroke': 'var(--card-stroke)',
+        'destructive-background': 'var(--destructive-background)',
+        'blue': 'var(--blue)',
+        'blue-accent': 'var(--blue-accent)',
+        'red-muted': 'var(--red-muted)',
+        'green': 'var(--green)',
+      }
     },
   },
   plugins: [],
