@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import { Button } from './ui/button';
 interface NavbarProps {
 
 }
@@ -20,14 +21,14 @@ export const Navbar = ({ }: NavbarProps) => {
                     <li className='m-4'>Free Tools</li>
                     <li className='m-4'>Resource Center</li>
                 </ul>
-                <button className="button-gradient w-36 h-10">
-                    <span className="text-white text-md font-semibold">Get Started</span>
-                </button>
+                <Button variant={"primary_gradient"}>
+                    Get Started
+                </Button>
             </div>
             <div className="absolute right-5 md:hidden ">
-                <button className='flex hover:bg-black/10 w-8 h-8 items-center transition-all rounded-md justify-center'>
+                <Button variant={"ghost"} size={"icon"}>
                     <MenuSVG /> {/* TODO: Implement expand menu */}
-                </button>
+                </Button>
             </div>
         </div>
     )
