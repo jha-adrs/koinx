@@ -40,7 +40,7 @@ const TokenInfoPage = ({ params }: TokenInfoPageProps) => {
             </div>
             <div className='col-span-1 space-y-6  px-4'>
                 <GetStartedCard />
-                <TrendingCoinsCard />
+                {/* <TrendingCoinsCard /> */}
             </div>
         </div>
     )

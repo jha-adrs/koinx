@@ -24,4 +24,7 @@
     background: linear-gradient(90deg, #28B9EA 0%, #1B4AEF 100%);
     border-radius: 8px;
   }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
 }
