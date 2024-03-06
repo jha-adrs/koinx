@@ -5,13 +5,15 @@
 @layer base {
   :root {
     --blue: #0052FE;
-    --blue-accent: #E8F4FD;
+    --blue-accent: #E2ECFE;
     --red-muted: #E96975;
     --green: #0FBA83;
+    --green-bg: #E8F9F4;
     --foreground: #171717;
     --foreground-secondary: #202020;
     --foreground-tertiary: #0F1629;
     --foreground-quaternary: #788F9B;
+    --foreground-pentenary: #0B1426;
     --foreground-muted: #7C7E8C;
     --card-background: #FFFFFF;
     --background: #EFF2F5;

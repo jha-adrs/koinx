@@ -14,7 +14,7 @@ const TokenInfoLayout = ({ params, children }: TokenInfoLayoutProps) => {
         <>
             <main className="flex min-h-screen flex-col items-center bg-background">
                 <Navbar />
-                <div className="p-2 sm:p-4 md:p-8 lg:p-10 w-full h-full">
+                <div className="px-2 sm:px-4 md:px-8 lg:px-10 w-full h-full ">
                     <Path token={params.token} />
                     {children}
                 </div>

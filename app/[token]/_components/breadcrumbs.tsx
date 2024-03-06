@@ -21,7 +21,7 @@ const Arrow = () => {
 
 export const Path = ({ token }: PathProps) => {
     return (
-        <div className="flex flex-row justify-start items-center space-x-2 w-full p-2">
+        <div className="flex flex-row justify-start items-center space-x-2 w-full p-4">
             <p className="text-[#3E5765]">
                 Cryptocurrencies
             </p>

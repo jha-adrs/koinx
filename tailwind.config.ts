@@ -13,6 +13,7 @@ const config: Config = {
         'foreground-2': 'var(--foreground-secondary)',
         'foreground-3': 'var(--foreground-tertiary)',
         'foreground-4': 'var(--foreground-quaternary)',
+        'foreground-5': 'var(--foreground-pentenary)',
         'foreground-muted': 'var(--foreground-muted)',
         'card-background': 'var(--card-background)',
         'background': 'var(--background)',
@@ -22,6 +23,7 @@ const config: Config = {
         'blue-accent': 'var(--blue-accent)',
         'red-muted': 'var(--red-muted)',
         'green': 'var(--green)',
+        'green-bg': 'var(--green-bg)',
       }
     },
   },
