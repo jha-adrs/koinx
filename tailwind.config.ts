@@ -18,7 +18,7 @@ const config: Config = {
         'card-background': 'var(--card-background)',
         'background': 'var(--background)',
         'card-stroke': 'var(--card-stroke)',
-        'destructive-background': 'var(--destructive-background)',
+        'red-bg': 'var(--red-bg)',
         'blue': 'var(--blue)',
         'blue-accent': 'var(--blue-accent)',
         'red-muted': 'var(--red-muted)',

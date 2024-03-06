@@ -1,6 +1,7 @@
 import { fetchTrending } from '@/actions/trending';
 import { Icons } from '@/components/icons';
 import { Skeleton } from '@/components/ui/skeleton';
+import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import React, { Suspense } from 'react';
 import { z } from 'zod';
@@ -68,12 +69,14 @@ const Token = ({ name, symbol, change, imagePath }: TokenProps) => {
                     {name}{`(${symbol})`}
                 </p>
             </div>
-            <div className="flex w-fit h-8 bg-green-bg rounded-md items-center p-2 space-x-2">
+            <div className={cn("flex w-fit h-8 rounded-md items-center p-2 space-x-2",
+                change < 0 ? "bg-red-50 text-red-muted" : "bg-green-bg text-green"
+            )}>
 
                 {
                     change < 0 ?  <Icons.DOWN_ARROW_RED />:<Icons.UP_ARROW_GREEN />
                 }
-                <p className="inline-flex text-green">
+                <p className="inline-flex ">
                     {`${change?.toFixed(2)}%`}
                 </p>
             </div>

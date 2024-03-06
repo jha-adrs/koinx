@@ -18,7 +18,7 @@
     --card-background: #FFFFFF;
     --background: #EFF2F5;
     --card-stroke: #E3E3E3;
-    --destructive-background: #EE6855;
+    --red-bg: #EE6855;
   }
   .button-gradient {
     background: linear-gradient(90deg, #28B9EA 0%, #1B4AEF 100%);

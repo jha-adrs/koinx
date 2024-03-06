@@ -38,16 +38,16 @@ export const SentimentCard = ({ }: SentimentCardProps) => {
                     </div>
                     <div className="flex-col space-y-2 w-full ">
                         <div className="flex flex-row items-center space-x-2">
-                            <div className='h-[5px] bg-green w-[76%] rounded-sm' />
+                            <div className='h-[6px] bg-green w-[76%] rounded-sm' />
                             <p className="text-foreground-muted font-normal">76%</p>
                         </div>
                         <div className="flex flex-row items-center space-x-2">
-                            <div className='h-[5px] bg-gray-400 w-[16%] rounded-sm' />
-                            <p className="text-foreground-muted font-normal">16%</p>
+                            <div className='h-[6px] bg-gray-400 w-[8%] rounded-sm' />
+                            <p className="text-foreground-muted font-normal">8%</p>
                         </div>
                         <div className="flex flex-row items-center space-x-2">
-                            <div className='h-[5px] bg-red-muted w-[8%] rounded-sm' />
-                            <p className="text-foreground-muted font-normal">8%</p>
+                            <div className='h-[6px] bg-red-muted w-[16%] rounded-sm' />
+                            <p className="text-foreground-muted font-normal">16%</p>
                         </div>
                     </div>
                 </div>
