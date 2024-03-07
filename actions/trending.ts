@@ -5,6 +5,10 @@ import axios from "axios";
 export const fetchTrending = async () => {
     //GET request
     try {
+        //Wait 3sec
+        await new Promise((resolve)=>{
+            setTimeout(()=>{resolve("Done")},3000)
+        })
         const { data } = await axios(config.TRENDING_TOKENS_API_URL,{
             headers: {
                 'x-cg-demo-api-key': process.env.COINGECKO_API_KEY

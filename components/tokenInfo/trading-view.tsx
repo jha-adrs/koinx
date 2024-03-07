@@ -54,9 +54,7 @@ function TradingViewWidget({ symbol, timeRange }: TradingViewWidgetProps) {
         }`;
       container.current.appendChild(script);
 
-      return () => {
-        container.current.removeChild(script);
-      }
+      
     },
     []
   );

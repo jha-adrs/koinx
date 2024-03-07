@@ -22,7 +22,7 @@ interface TokenInfoPageProps {
 
 const TokenInfoPage = ({ params }: TokenInfoPageProps) => {
     return (
-        <div className='grid grid-cols-1 md:grid-cols-3 '>
+        <div className='grid grid-cols-1 md:grid-cols-3 relative'>
             <div className='col-span-2 space-y-8 '>
                 <div className=' space-y-6'>
                     <MainCard />
@@ -32,13 +32,15 @@ const TokenInfoPage = ({ params }: TokenInfoPageProps) => {
                     <AboutCard />
                     <TokenomicsCard />
                     <TeamCard />
+                    <div className=' md:absolute w-full md:mt-4 md:col-span-3'>
+                        <YMALCard />
+                    </div>
                 </div>
 
-                {/* <div className='md:absolute md:bottom-0 flex w-full bg-black'>
-                    <YMALCard />
-                </div> */}
+
             </div>
-            <div className='col-span-1 space-y-6  px-4'>
+
+            <div className='col-span-1 space-y-6  md:px-4 py-2 md:py-0'>
                 <GetStartedCard />
                 {/* <TrendingCoinsCard />  */}
             </div>
