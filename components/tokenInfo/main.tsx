@@ -7,7 +7,11 @@ import { PriceChart } from './price-chart';
 import Image from 'next/image';
 
 interface MainCardProps {
-
+    inr_price: number;
+    usd_price: number;
+    change: number;
+    symbol: string;
+    imageURL?: string;
 }
 
 export const MainCard = ({ }: MainCardProps) => {
@@ -17,7 +21,7 @@ export const MainCard = ({ }: MainCardProps) => {
             <div className="flex flex-col  rounded-lg p-6 bg-white min-h-[500px] h-fit border-2">
                 <TokenHeader className='hidden md:flex' />
 
-                <PriceInfo/>
+                <PriceInfo />
                 <Separator className="w-full my-8 bg-gray-300" />
                 <PriceChart />
             </div>
@@ -30,7 +34,7 @@ const TokenHeader = ({ className = "" }: { className?: string }) => {
         <div className={cn("flex flex-row w-full space-x-8", className)}>
             <div className='inline-flex items-center space-x-2'>
                 <p className="inline-flex gap-x-2 font-semibold text-xl">
-                    <Image src={"/images/bitcoin.png"} alt='Bitcoin Logo' width={30} height={30}/>  Bitcoin
+                    <Image src={"/images/bitcoin.png"} alt='Bitcoin Logo' width={30} height={30} />  Bitcoin
                 </p>
                 <p className='font-semibold text-lg text-foreground-muted'>
                     BTC
