@@ -9,6 +9,7 @@ interface PerformanceCardProps {
     fiftyTwoWeekLow?: number;
     fiftyTwoWeekHigh?: number;
     currentPrice?: number;
+    name:string;
 }
 
 export const PerformanceCard = ({
@@ -16,7 +17,8 @@ export const PerformanceCard = ({
     todayLow = 20055,
     todayHigh = 96055,
     fiftyTwoWeekLow = 10055,
-    fiftyTwoWeekHigh = 100000
+    fiftyTwoWeekHigh = 100000,
+    name
 }: PerformanceCardProps) => {
     const percentToday: number = Math.floor((currentPrice - todayLow) / (todayHigh - todayLow) * 100);
     const percent52Week: number = Math.floor((currentPrice - fiftyTwoWeekLow) / (fiftyTwoWeekHigh - fiftyTwoWeekLow) * 100);
@@ -76,7 +78,7 @@ export const PerformanceCard = ({
 
                 </div>
 
-                <Fundamentals/>
+                <Fundamentals name={name}/>
 
             </div>
         </div>

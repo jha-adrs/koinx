@@ -24,7 +24,7 @@ interface TokenInfoPageProps {
 }
 
 const TokenInfoPage = async ({ params }: TokenInfoPageProps) => {
-    const data = await fetchPrice({ ids: "bitcoin", vs_currencies: "inr,usd", include_24hr_change: true })
+    const data = await fetchPrice({ ids: params.token, vs_currencies: "inr,usd", include_24hr_change: true })
     if(!data.success){
         throw new Error("Couldn't fetch market data");
     }
@@ -35,9 +35,9 @@ const TokenInfoPage = async ({ params }: TokenInfoPageProps) => {
                     <div className=' space-y-6'>
                         <MainCard name={params.token} symbol={TOKENS[params.token].SYMBOL} inr_price={data.inr_price} usd_price={data.usd_price} change={data.usd_24h_change} />
                         <SecondaryNav />
-                        <PerformanceCard currentPrice={data.usd_price} />
+                        <PerformanceCard currentPrice={data.usd_price} name={params.token} />
                         <SentimentCard />
-                        <AboutCard />
+                        <AboutCard name={params.token}/>
                         <TokenomicsCard />
                         <TeamCard />
                         <div className=' md:absolute w-full md:mt-4 md:col-span-3'>
@@ -59,7 +59,7 @@ const TokenInfoPage = async ({ params }: TokenInfoPageProps) => {
 
 const LoadingScreen = ()=>{
     return (
-        <div className="flex w-screen h-screen items-center bg-black/10">
+        <div className="flex w-screen h-screen items-center justify-center bg-black/10">
             <Loader2 className='animate-spin w-8 h-8'/>
         </div>
     )

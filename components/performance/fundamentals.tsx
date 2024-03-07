@@ -3,13 +3,13 @@ import { Icons } from '../icons';
 import { Separator } from '../ui/separator';
 
 interface FundamentalsProps {
-
+    name: string
 }
 
-const items1 = ["Bitcoin Price", "24h Low / 24h High", "7d Low / 7d High", "Trading Volume", "Market Cap Rank"];
+const items1 = ["Token Price", "24h Low / 24h High", "7d Low / 7d High", "Trading Volume", "Market Cap Rank"];
 const items2 = ["Market Cap", "Market Cap Dominance", "Volume / Market Cap"];
 
-export const Fundamentals = ({ }: FundamentalsProps) => {
+export const Fundamentals = ({ name }: FundamentalsProps) => {
     return (
         <div className='space-y-4'>
             <p className="font-semibold text-lg inline-flex gap-x-2 items-center">

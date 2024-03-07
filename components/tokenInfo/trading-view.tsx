@@ -4,6 +4,7 @@ import React, { useEffect, useRef, memo } from 'react';
 interface TradingViewWidgetProps {
   symbol: string;
   timeRange: string;
+  
 }
 
 function TradingViewWidget({ symbol, timeRange }: TradingViewWidgetProps) {
@@ -12,6 +13,7 @@ function TradingViewWidget({ symbol, timeRange }: TradingViewWidgetProps) {
   useEffect(
     () => {
       const script = document.createElement("script");
+      const graphRef = container.current;
       script.src = "https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js";
       script.type = "text/javascript";
       script.async = true;
@@ -19,7 +21,7 @@ function TradingViewWidget({ symbol, timeRange }: TradingViewWidgetProps) {
         {
           "symbols": [
             [
-              "BITSTAMP:BTCUSD|3M"
+              "${symbol}"
             ]
           ],
           "chartOnly": true,
@@ -53,7 +55,9 @@ function TradingViewWidget({ symbol, timeRange }: TradingViewWidgetProps) {
           "bottomColor": "rgba(255, 255, 255, 1)"
         }`;
       container.current!.appendChild(script);
-
+        return ()=>{
+          graphRef!.removeChild(script)
+        }
       
     },
     []

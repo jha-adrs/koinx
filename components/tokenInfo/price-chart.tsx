@@ -9,7 +9,7 @@ const TradingViewWidget = lazy(() => import('./trading-view'));
 
 
 interface PriceChartProps {
-
+    name: string;
 }
 
 const TimeRanges = [
@@ -47,14 +47,14 @@ const TimeRanges = [
     }
 ];
 
-export const PriceChart = ({ }: PriceChartProps) => {
+export const PriceChart = ({ name}: PriceChartProps) => {
     const [timeRange, setTimeRange] = useState('1d|5');
     return (
         <div className='flex flex-col w-full min-h-[300px] h-fit space-y-4'>
 
             <div className="flex flex-col lg:flex-row  justify-between w-full h-fit">
-                <p className="font-semibold text-lg">
-                    Bitcoin Price Chart(USD)
+                <p className="font-semibold text-lg capitalize">
+                    {name} Price Chart(USD)
                 </p>
                 <div className="flex flex-row items-center pt-2 lg:pt-0 lg:space-x-4">
                     {
@@ -78,7 +78,10 @@ export const PriceChart = ({ }: PriceChartProps) => {
                 <Suspense fallback={<div className='flex w-full h-full items-center justify-center'>
                     Loading...
                 </div>}>
-                    <TradingViewWidget symbol="BITSTAMP:BTCUSD|3M" timeRange={timeRange} />
+                    <TradingViewWidget symbol={
+                        name === 'bitcoin' ? "BITSTAMP:BTCUSD|3M"
+                        : "BITSTAMP:ETHUSD|3M"
+                    } timeRange={timeRange} />
                 </Suspense>
             </div>
 

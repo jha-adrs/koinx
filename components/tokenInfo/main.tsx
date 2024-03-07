@@ -24,7 +24,7 @@ export const MainCard = ({ inr_price, usd_price, change, symbol, imageURL, name 
 
                 <PriceInfo inr_price={inr_price} usd_price={usd_price} change={change} />
                 <Separator className="w-full my-8 bg-gray-300" />
-                <PriceChart />
+                <PriceChart name={name} />
             </div>
         </div>
     )

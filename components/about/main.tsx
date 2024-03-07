@@ -5,23 +5,23 @@ import { Button } from '../ui/button';
 import { Icons } from '../icons';
 
 interface AboutCardProps {
-
+    name: string;
 }
 
-export const AboutCard = ({ }: AboutCardProps) => {
+export const AboutCard = ({name}: AboutCardProps) => {
     return (
         <div className="flex flex-col  rounded-lg p-6 bg-white min-sh-[500px] border-2">
 
-            <p className="inline-flex gap-x-2 font-semibold text-xl pb-4">
-                About Bitcoin
+            <p className="inline-flex gap-x-2 font-semibold text-xl pb-4 capitalize">
+                About {name}
             </p>
             <div className='space-y-2 py-4'>
                 <div className="space-y-2">
-                    <h2 className="font-bold text-base">
-                        What is Bitcoin?
+                    <h2 className="font-bold text-base capitalize">
+                        What is {name}?
                     </h2>
-                    <p className="font-medium text-sm">
-                        Bitcoin&apos;s price today is US$16,951.82, with a 24-hour trading volume of $19.14 B. BTC is +0.36% in the last 24 hours. It is currently -7.70% from its 7-day all-time high of $18,366.66, and 3.40% from its 7-day all-time low of $16,394.75. BTC has a circulating supply of 19.24 M BTC and a max supply of 21 M BTC.
+                    <p className="font-medium text-sm capitalize">
+                    {name}&apos; price today is US$16,951.82, with a 24-hour trading volume of $19.14 B. BTC is +0.36% in the last 24 hours. It is currently -7.70% from its 7-day all-time high of $18,366.66, and 3.40% from its 7-day all-time low of $16,394.75. BTC has a circulating supply of 19.24 M BTC and a max supply of 21 M BTC.
                     </p>
                 </div>
                 <div className="space-y-2 py-4">
