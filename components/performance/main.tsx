@@ -4,19 +4,19 @@ import { cn } from '@/lib/utils';
 import { Fundamentals } from './fundamentals';
 
 interface PerformanceCardProps {
-    todayLow: number;
-    todayHigh: number;
-    fiftyTwoWeekLow: number;
-    fiftyTwoWeekHigh: number;
-    currentPrice: number;
+    todayLow?: number;
+    todayHigh?: number;
+    fiftyTwoWeekLow?: number;
+    fiftyTwoWeekHigh?: number;
+    currentPrice?: number;
 }
 
 export const PerformanceCard = ({
     currentPrice = 95000,
-    todayLow = 46055,
+    todayLow = 20055,
     todayHigh = 96055,
-    fiftyTwoWeekLow = 46055,
-    fiftyTwoWeekHigh = 96055
+    fiftyTwoWeekLow = 10055,
+    fiftyTwoWeekHigh = 100000
 }: PerformanceCardProps) => {
     const percentToday: number = Math.floor((currentPrice - todayLow) / (todayHigh - todayLow) * 100);
     const percent52Week: number = Math.floor((currentPrice - fiftyTwoWeekLow) / (fiftyTwoWeekHigh - fiftyTwoWeekLow) * 100);

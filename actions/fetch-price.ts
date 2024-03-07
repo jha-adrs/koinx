@@ -33,13 +33,14 @@ export const fetchPrice = async ({ ids, include_24hr_change, vs_currencies }: Fe
                 vs_currencies
             }
         });
+        //console.log("API Res2",data[ids])
         return {
             success: true,
-            name: data.ids,
-            inr_price: data.ids["inr"],
-            usd_price: data.ids["usd"],
-            inr_24h_change: data.ids["inr_24h_change"],
-            usd_24h_change: data.ids["usd_24h_change"],
+            name: ids,
+            inr_price: data[ids]["inr"],
+            usd_price: data[ids]["usd"],
+            inr_24h_change: data[ids]["inr_24h_change"],
+            usd_24h_change: data[ids]["usd_24h_change"],
         }
 
     } catch (error) {

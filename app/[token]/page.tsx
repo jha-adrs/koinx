@@ -26,16 +26,16 @@ interface TokenInfoPageProps {
 const TokenInfoPage = async ({ params }: TokenInfoPageProps) => {
     const data = await fetchPrice({ ids: "bitcoin", vs_currencies: "inr,usd", include_24hr_change: true })
     if(!data.success){
-        throw new Error("Couldnt fetch market data");
+        throw new Error("Couldn't fetch market data");
     }
     return (
         <Suspense fallback={<LoadingScreen/>}>
             <div className='grid grid-cols-1 md:grid-cols-3 relative'>
                 <div className='col-span-2 space-y-8 '>
                     <div className=' space-y-6'>
-                        <MainCard symbol={TOKENS[params.token].SYMBOL} inr_price={data.inr_price} usd_price={data.usd_price} change={data.usd_24h_change} />
+                        <MainCard name={params.token} symbol={TOKENS[params.token].SYMBOL} inr_price={data.inr_price} usd_price={data.usd_price} change={data.usd_24h_change} />
                         <SecondaryNav />
-                        <PerformanceCard />
+                        <PerformanceCard currentPrice={data.usd_price} />
                         <SentimentCard />
                         <AboutCard />
                         <TokenomicsCard />

@@ -20,6 +20,7 @@ export const fetchTrending = async () => {
         }else {
             const validationRes = await responseSchema.safeParseAsync(data.coins);
             if(!validationRes.success){
+                console.log("Failed Validation data:",data.coins)
                 throw new Error("Validation Failed");
             }
         }

@@ -11,7 +11,7 @@ interface TokenGraphCardProps {
     change:number;
     imagePath:string;
     sparkline: string;
-    price:number;
+    price:number | string;
 }
 
 export const TokenGraphCard = ({
@@ -22,6 +22,7 @@ export const TokenGraphCard = ({
     sparkline,
     price
 }: TokenGraphCardProps) => {
+    const priceFinal = typeof price === 'string' ? parseFloat(price) : price;
     return (
         <div className='border rounded-lg min-h-24 h-fit min-w-56'>
             {/* <Skeleton className='w-56 h-36 rounded-lg'/> */}
@@ -41,9 +42,9 @@ export const TokenGraphCard = ({
                         </p>
                     </div>
                 </div>
-                <p className="font-semibold" dangerouslySetInnerHTML={{ __html: price }}></p>
+                <p className="font-semibold" dangerouslySetInnerHTML={{ __html: priceFinal }}></p>
                 <div className="w-full">
-                    <Image src={sparkline} alt="Sparkline" width={150} height={200} className='' />
+                    <Image src={sparkline} alt="Sparkline" width={150} height={200} className='w-48 h-20' />
                 </div>
             </div>
         </div>

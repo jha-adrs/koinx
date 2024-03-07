@@ -1,31 +1,23 @@
-"use client"
-import React, { Suspense, useEffect, useState } from 'react';
+
+import React, { Suspense } from 'react';
 import { TokenGraphCard } from './token-graph-card';
 import { fetchTrending } from '@/actions/trending';
 import { Skeleton } from '../ui/skeleton';
+import { z } from 'zod';
+import { responseSchema } from '@/lib/validators/trending-tokens-response';
 // You may also like
 interface YMALCardProps {
 
 }
 
-export const YMALCard = ({ }: YMALCardProps) => {
-    const [data, setData] = useState(null);
-
-    useEffect(() => {
-        const fetchData = async () => {
-            const response = fetchTrending().then((response) => {
-                if (!response?.success) {
-                    throw new Error("Couldnt fetch");
-                }
-                setData(response.data);
-            }).catch((err) => {
-                console.log(err);
-            })
-
-        };
-
-        fetchData();
-    }, []);
+export const YMALCard = async ({ }: YMALCardProps) => {
+    const response = await fetchTrending();
+    //Validate response
+    //console.log("1212",response)
+    if (!response.success) {
+        throw new Error("Couldnt fetch trending")
+    }
+    const data = await responseSchema.parseAsync(response.coins)
     return (
         <div className="flex flex-col p-4 bg-white min-h-[300px] w-full rounded-md border-2 md:border-0">
             <p className=" gap-x-2 font-semibold text-xl">
@@ -33,26 +25,28 @@ export const YMALCard = ({ }: YMALCardProps) => {
             </p>
 
             <div className="flex flex-col">
-                {!!data && (
-                    <>
-                        <div className="flex flex-row py-2 overflow-x-auto space-x-4 no-scrollbar ">
-                            {
-                                data.map((element, index) => {
-                                    const item = element.item;
-                                    return (<TokenGraphCard key={index} price={item.data.price} name={item.name} symbol={item.symbol} imagePath={item.small} sparkline={item.data.sparkline} change={item.data.price_change_percentage_24h["usd"]} />)
-                                })
-                            }
-                        </div>
-                        <div className="flex py-2 overflow-x-auto space-x-4 no-scrollbar ">
-                            {
-                                data.map((element, index) => {
-                                    const item = element.item;
-                                    return (<TokenGraphCard key={index} price={item.data.price} name={item.name} symbol={item.symbol} imagePath={item.small} sparkline={item.data.sparkline} change={item.data.price_change_percentage_24h["usd"]} />)
-                                })
-                            }
-                        </div>
-                    </>
-                )}
+                <Suspense fallback={<TokenGraphSkeleton />}>
+                    {!!data && (
+                        <>
+                            <div className="flex flex-row py-2 overflow-x-auto space-x-4 no-scrollbar ">
+                                {
+                                    data.map((element, index) => {
+                                        const item = element.item;
+                                        return (<TokenGraphCard key={index} price={item.data.price} name={item.name} symbol={item.symbol} imagePath={item.small} sparkline={item.data.sparkline} change={item.data.price_change_percentage_24h["usd"]} />)
+                                    })
+                                }
+                            </div>
+                            <div className="flex py-2 overflow-x-auto space-x-4 no-scrollbar ">
+                                {
+                                    data.map((element, index) => {
+                                        const item = element.item;
+                                        return (<TokenGraphCard key={index} price={item.data.price} name={item.name} symbol={item.symbol} imagePath={item.small} sparkline={item.data.sparkline} change={item.data.price_change_percentage_24h["usd"]} />)
+                                    })
+                                }
+                            </div>
+                        </>
+                    )}
+                </Suspense>
 
                 {
                     data === null ? (<TokenGraphSkeleton />) : null
