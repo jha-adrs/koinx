@@ -7,7 +7,7 @@ interface TradingViewWidgetProps {
 }
 
 function TradingViewWidget({ symbol, timeRange }: TradingViewWidgetProps) {
-  const container = useRef();
+  const container = useRef<HTMLDivElement | null>(null);
 
   useEffect(
     () => {
@@ -52,7 +52,7 @@ function TradingViewWidget({ symbol, timeRange }: TradingViewWidgetProps) {
           "topColor": "rgba(187, 217, 251, 1)",
           "bottomColor": "rgba(255, 255, 255, 1)"
         }`;
-      container.current.appendChild(script);
+      container.current!.appendChild(script);
 
       
     },

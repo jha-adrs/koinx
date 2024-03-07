@@ -9,7 +9,7 @@ export const data = {
   datasets: [
     {
       label: 'Investor Distribution',
-      data: [20,80],
+      data: [20, 80],
       backgroundColor: [
         'rgba(0, 130, 255, 1.0)',
         'rgba(250, 160, 2, 1.0)',
@@ -18,28 +18,21 @@ export const data = {
   ],
 };
 
-const options = {
-    cutout: '65%',
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-        legend: {
-            display: true,
-            position: "right",
-            labels: {
-                usePointStyle: true,
-            },
-            font: {
-                weight: 'bold',
-                size: 24,
-            }
-        }
-    },
-    
-}
-
-export const DoughnutChart = ()=>{
+export const DoughnutChart = () => {
   return (
-        <Doughnut data={data} options={options}  />
+    <Doughnut data={data} options={{
+      cutout: '65%',
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          display: true,
+          position: 'right', // or any other valid position value
+          labels: {
+            usePointStyle: true,
+          },
+        },
+      },
+    }} />
   )
 }
