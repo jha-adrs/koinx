@@ -21,7 +21,7 @@ export const AboutCard = ({ }: AboutCardProps) => {
                         What is Bitcoin?
                     </h2>
                     <p className="font-medium text-sm">
-                        Bitcoin’s price today is US$16,951.82, with a 24-hour trading volume of $19.14 B. BTC is +0.36% in the last 24 hours. It is currently -7.70% from its 7-day all-time high of $18,366.66, and 3.40% from its 7-day all-time low of $16,394.75. BTC has a circulating supply of 19.24 M BTC and a max supply of 21 M BTC.
+                        Bitcoin&apos;s price today is US$16,951.82, with a 24-hour trading volume of $19.14 B. BTC is +0.36% in the last 24 hours. It is currently -7.70% from its 7-day all-time high of $18,366.66, and 3.40% from its 7-day all-time low of $16,394.75. BTC has a circulating supply of 19.24 M BTC and a max supply of 21 M BTC.
                     </p>
                 </div>
                 <div className="space-y-2 py-4">
@@ -44,14 +44,14 @@ export const AboutCard = ({ }: AboutCardProps) => {
                 Already Holding Crypto?
             </p>
 
-            <div className="flex flex-col space-y-4 md:space-x-4 md:space-y-0 md:flex-row">
+            <div className="flex flex-col space-y-4 lg:space-y-0 lg:space-x-4 lg:flex-row ">
                 <div className="flex min-h-36 min-w-48 space-x-4 rounded-md items-center justify-start p-4 bg-gradient-to-br from-[#79F1A4] to-[#0E5CAD]">
                     <div className="flex-col">
                         <Image src="/images/investing1.png" width={150} height={150} alt='Investing' />
                     </div>
                     <div className="flex-col space-y-4">
-                        <h2 className="font-bold text-2xl text-white">
-                        Calculate your tax liability
+                        <h2 className="font-bold text-xl sm:text-2xl text-white">
+                            Calculate your tax liability
                         </h2>
                         <Button className='bg-white font-semibold space-x-2 rounded-lg'>
                             <span>Check Now</span> <Icons.CHEV_RIGHT />
@@ -59,14 +59,13 @@ export const AboutCard = ({ }: AboutCardProps) => {
                     </div>
 
                 </div>
-
                 <div className="flex min-h-36 min-w-48 space-x-4 rounded-md items-center justify-start p-4 bg-gradient-to-br from-[#FF9865] to-[#EF3031]">
                     <div className="flex-col">
-                        <Image src="/images/investing1.png" width={150} height={150} alt='Investing' />
+                        <Image src="/images/investing2.png" width={150} height={150} alt='Investing' />
                     </div>
                     <div className="flex-col space-y-4">
-                        <h2 className="font-bold text-2xl text-white">
-                            Calculate your profits
+                        <h2 className="font-bold text-xl sm:text-2xl text-white">
+                            Calculate your tax liability
                         </h2>
                         <Button className='bg-white font-semibold space-x-2 rounded-lg'>
                             <span>Check Now</span> <Icons.CHEV_RIGHT />
